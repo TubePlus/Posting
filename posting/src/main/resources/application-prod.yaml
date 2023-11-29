@@ -1,9 +1,24 @@
 spring:
   datasource:
-    url: jdbc:mysql://mysql2:3306/tubeplus
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://mysql2:3306/tubeplus
+#    username: root
+#    password: 1234
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    master:
+      hikari:
+        jdbc-url: jdbc:mysql://34.64.192.14:3306/board_service
+        read-only: false
+        username: ${MYSQL_NAME}
+        password: ${MYSQL_PASSWORD}
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    slave:
+      hikari:
+        jdbc-url: jdbc:mysql://34.64.254.7:3306/board_service
+        read-only: true
+        username: ${MYSQL_NAME}
+        password: ${MYSQL_PASSWORD}
+        driver-class-name: com.mysql.cj.jdbc.Driver
 
 eureka:
   client:

@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 10000  # 서버 올릴땐 port 0
   shutdown: graceful
 
 management:
@@ -23,6 +23,14 @@ spring:
       bootstrap-servers: plaintext://kafka1:9092,plaintext://kafka2:9092,plaintext://kafka3:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    topic1:
+      name: "boardCreate"
+    topic2:
+      name: "commentAlarm"
+    topic3:
+      name: "communityInteraction"
+
   profiles:
     active: local
   application:
